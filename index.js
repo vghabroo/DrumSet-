@@ -9,6 +9,7 @@ function soundTrack(){
   console.log(this.style.color = "yellow");
   var buttonInnerHTML = this.innerHTML;
   makeSound(buttonInnerHTML);
+  buttonAnimation(buttonInnerHTML);
 
     }
 //Detecting key board press
@@ -16,6 +17,7 @@ function soundTrack(){
 document.addEventListener("keydown",pressKey);
 function pressKey(event){
   makeSound(event.key);
+    buttonAnimation(event.key);
 }
 
 function makeSound(key){
@@ -59,6 +61,14 @@ function makeSound(key){
 
 
   }
+
+}
+function buttonAnimation(currKey){
+    var activeButton = document.querySelector("." + currKey);
+    activeButton.classList.add("pressed");
+    setTimeout(function(){
+      activeButton.classList.remove("pressed");
+    }, 100);
 
 }
 
